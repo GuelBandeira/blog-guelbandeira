@@ -94,4 +94,4 @@ pluralizelisttitles = false   # removes the automatically appended "s" on sideba
 
 [caches]
   [caches.images]
-    dir = ':cacheDir/images
+    dir = ':cacheDir/images'
