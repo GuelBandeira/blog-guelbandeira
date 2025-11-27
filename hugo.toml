@@ -1,4 +1,4 @@
-baseURL = "/"
+baseURL = "https://guelbandeira.github.io/blog-guelbandeira/"
 languageCode = "en-us"
 theme = "poison"
 pagerSize = 10
@@ -27,10 +27,10 @@ pluralizelisttitles = false   # removes the automatically appended "s" on sideba
     ]
 
     # Links to your socials.  Comment or delete any you don't need/use. 
-    email_url = "mailto://@domain"
-    github_url = "https://github.com"
-    linkedin_url = "https://linkedin.com"
-    youtube_url = "https://youtube.com"
+    email_url = "mailto:bandeiraguel@gmail.com"
+    github_url = "https://github.com/guelbandeira"
+    linkedin_url = "https://www.linkedin.com/in/guel-bandeira/"
+    youtube_url = "https://www.youtube.com/@SoloSyntax"
 
     # NOTE: If you don't want to use RSS, comment or delete the following lines
     # Adds an RSS icon to the end of the socials which links to {{ .Site.BaseURL }}/index.xml
