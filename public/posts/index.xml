@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on </title>
+    <link>//localhost:1313/posts/</link>
+    <description>Recent content in Posts on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 04 Oct 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Example to demonstrate how to use series</title>
+      <link>//localhost:1313/posts/my-first-post/</link>
+      <pubDate>Tue, 04 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/posts/my-first-post/</guid>
+      <description>Introduction 2 Lorem ipsum dolor sit amet consectetur adipiscing elit feugiat taciti eget enim sapien odio, et risus laoreet suscipit leo mauris lacus pellentesque ultrices posuere nibh. Eu egestas quis tellus morbi scelerisque maecenas pharetra justo dignissim primis, velit integer diam metus mi vivamus tempor odio. Eleifend sem morbi pretium faucibus habitant mi molestie, velit etiam sagittis convallis id quis netus, venenatis tempor blandit pellentesque maecenas nam. Posuere duis non maecenas mattis curae blandit diam gravida, taciti auctor erat libero montes viverra aliquet dictumst senectus, sapien faucibus suscipit velit ligula parturient cursus.</description>
+    </item>
+    <item>
+      <title>Example to demonstrate how to use series</title>
+      <link>//localhost:1313/posts/my-second-post/</link>
+      <pubDate>Tue, 04 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/posts/my-second-post/</guid>
+      <description>Introduction 2 i love yasmine</description>
+    </item>
+  </channel>
+</rss>
