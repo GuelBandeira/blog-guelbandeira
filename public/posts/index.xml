@@ -6,21 +6,14 @@
     <description>Recent content in Posts on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 04 Oct 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 25 Nov 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="//localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Example to demonstrate how to use series</title>
+      <title>How to create a free blog?</title>
       <link>//localhost:1313/posts/my-first-post/</link>
-      <pubDate>Tue, 04 Oct 2022 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 25 Nov 2025 00:00:00 +0000</pubDate>
       <guid>//localhost:1313/posts/my-first-post/</guid>
-      <description>Introduction 2 Lorem ipsum dolor sit amet consectetur adipiscing elit feugiat taciti eget enim sapien odio, et risus laoreet suscipit leo mauris lacus pellentesque ultrices posuere nibh. Eu egestas quis tellus morbi scelerisque maecenas pharetra justo dignissim primis, velit integer diam metus mi vivamus tempor odio. Eleifend sem morbi pretium faucibus habitant mi molestie, velit etiam sagittis convallis id quis netus, venenatis tempor blandit pellentesque maecenas nam. Posuere duis non maecenas mattis curae blandit diam gravida, taciti auctor erat libero montes viverra aliquet dictumst senectus, sapien faucibus suscipit velit ligula parturient cursus.</description>
-    </item>
-    <item>
-      <title>Example to demonstrate how to use series</title>
-      <link>//localhost:1313/posts/my-second-post/</link>
-      <pubDate>Tue, 04 Oct 2022 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/my-second-post/</guid>
-      <description>Introduction 2 i love yasmine</description>
+      <description>What tool did I use? This blog runs at no cost, with no database and on a free host. I created it without spending any money, in a very simple way that you can follow too. The only tool I used is called Hugo, a Go framework designed to build static websites. All you need to do is follow the documentation on their website, which is very easy to understand. It’s so straightforward that I found it unnecessary to extend this section further, you can replicate everything I did by simply following their instructions.</description>
     </item>
   </channel>
 </rss>
