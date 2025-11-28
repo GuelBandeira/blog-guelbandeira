@@ -1,4 +1,4 @@
-baseURL = "https://guelbandeira.github.io/blog-guelbandeira/"
+baseURL = "blog-guelbandeira/"
 languageCode = "en-us"
 theme = "poison"
 pagerSize = 10
