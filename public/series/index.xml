@@ -6,6 +6,14 @@
     <description>Recent content in Series on Blog - Guel Bandeira</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Fri, 28 Nov 2025 02:38:09 -0300</lastBuildDate>
     <atom:link href="http://localhost:1313/series/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Definitive Guide to Hosting a Blog</title>
+      <link>http://localhost:1313/series/definitive-guide-to-hosting-a-blog/</link>
+      <pubDate>Tue, 25 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/series/definitive-guide-to-hosting-a-blog/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>

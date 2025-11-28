@@ -104,3 +104,7 @@ pluralizelisttitles = false   # removes the automatically appended "s" on sideba
 # Clean Public Folder before Live Reload
 [build]
   cleanDestinationDir = true
+
+[services]
+  [services.googleAnalytics]
+    id = 'G-WD26YH5KML'
