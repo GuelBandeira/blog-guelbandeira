@@ -1,9 +1,4 @@
 baseURL = "https://guelbandeira.github.io/blog-guelbandeira/"
-RelativeURLs = true
-CanonifyURLs = true
-enableEmoji = true
-enableGitInfo = true
-enableRobotsTXT = true
 languageCode = "en-us"
 theme = "poison"
 pagerSize = 10
