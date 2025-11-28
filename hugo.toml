@@ -1,4 +1,4 @@
-baseURL = "https://guelbandeira.github.io/"
+baseURL = "https://guelbandeira.github.io/blog-guelbandeira/"
 RelativeURLs = true
 CanonifyURLs = true
 enableEmoji = true
