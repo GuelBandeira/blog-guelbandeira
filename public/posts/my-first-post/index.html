@@ -34,7 +34,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     
-    <link rel="icon" href=favicon.ico>
+    <link rel="icon" href=http://localhost:1313/favicon.ico>
 
     
     
@@ -339,12 +339,21 @@ powered by <a target="_blank" href="https://gohugo.io">Hugo</a> | themed with <a
 </div>
 
   <h2 id="what-tool-did-i-use">What tool did I use?</h2>
-<p>This blog runs at no cost, with no database and on a free host. I created it without spending any money, in a very simple way that you can follow too. The only tool I used is called <a href="https://gohugo.io/" target="_blank">Hugo</a>, a Go framework designed to build static websites. All you need to do is follow the documentation on their website, which is very easy to understand. It’s so straightforward that I found it unnecessary to extend this section further, you can replicate everything I did by simply following their instructions.</p>
+<p>This blog runs at no cost, with no database and on a free host. To not lie to you, the only cost I had was the domain name, for $10, but I already had that domain for my portfolio, and you can host this blog without using your custom domain. For the blog itself this runs without any money from my pockets, and the tool I used is called <a href="https://gohugo.io/" target="_blank">Hugo</a>, a Go framework designed to build static websites. All you need to do is follow the documentation on their website, which is very easy to understand. It’s so straightforward that I found it unnecessary to extend this section further, you can replicate everything I did by simply following their instructions.</p>
 <p>I chose the theme <a href="https://themes.gohugo.io/themes/poison/" target="_blank">Poison</a>, which I found the most pleasant, but you can choose the one that best suits you. One thing to keep in mind is that some themes, like <a href="https://themes.gohugo.io/themes/blox-tailwind/" target="_blank">Hugo Blox</a>, are built in modular blocks for you to assemble. These themes require extra attention because you will need to read their specific documentation.</p>
+<hr>
 <h2 id="which-host-did-i-pick">Which host did I pick?</h2>
 <p>This website is static, which means it doesn’t require any type of database, therefore, choosing a host becomes even simpler, since many platforms offer free hosting for static pages. Off the top of my head, I can mention Vercel, Netlify, and the well-known GitHub Pages, which is what I’m using for this blog.</p>
+<p>The setup you need to follow if you like to add the blog in a subdomain, like I have, is to configure the DNS name to &ldquo;blog&rdquo; on the website you bought the domain, and add the IP of your host, in my case I added the IPs of the Github Pages. Your DNS config should look like this:</p>
+<p><img src="http://localhost:1313/images/my-first-post/cloudfareconfig.png" alt="Cloudflare Config"></p>
+<p>Then you will need to create a plain CNAME file in your repository that will be your subdomain, and inside the CNAME file you should add the link do your subdomain, so these should look like these:</p>
+<p><img src="http://localhost:1313/images/my-first-post/cnamerepo.png" alt="CNAME Config"></p>
+<p>Inside the CNAME is my subdomain, like this:</p>
+<pre tabindex="0"><code>blog.guelbandeira
+</code></pre><p>And that&rsquo;s it.</p>
+<hr>
 <h2 id="conclusion">Conclusion</h2>
-<p>This is how I created a blog that runs without any costs. Today, there are other tools you can use to achieve the same results, such as <a href="https://github.com/jekyll/jekyll" target="_blank">Jekyll</a>, which has the same purpose of generating static websites. In the end, it’s mostly about choosing the tool you find most user-friendly or the one you enjoy using the most.</p>
+<p>This is how I created a blog that runs without any costs. There are other tools you can use to achieve the same results, such as <a href="https://github.com/jekyll/jekyll" target="_blank">Jekyll</a>, which has the same purpose of generating static websites. In the end, it’s mostly about choosing the tool you find most user-friendly or the one you enjoy using the most.</p>
 
   
   <hr>

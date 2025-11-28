@@ -13,7 +13,7 @@
       <link>http://localhost:1313/posts/my-first-post/</link>
       <pubDate>Tue, 25 Nov 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/my-first-post/</guid>
-      <description>What tool did I use? This blog runs at no cost, with no database and on a free host. I created it without spending any money, in a very simple way that you can follow too. The only tool I used is called Hugo, a Go framework designed to build static websites. All you need to do is follow the documentation on their website, which is very easy to understand. It’s so straightforward that I found it unnecessary to extend this section further, you can replicate everything I did by simply following their instructions.</description>
+      <description>What tool did I use? This blog runs at no cost, with no database and on a free host. The only cost I had was the domain name, for $10, but I already had that domain for my portfolio. For the blog itself this runs without any money from my pockets, and the tool I used is called Hugo, a Go framework designed to build static websites. All you need to do is follow the documentation on their website, which is very easy to understand.</description>
     </item>
   </channel>
 </rss>

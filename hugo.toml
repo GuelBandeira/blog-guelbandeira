@@ -18,7 +18,7 @@ pluralizelisttitles = false   # removes the automatically appended "s" on sideba
     remote_brand_image = 'https://media.licdn.com/dms/image/v2/D4E03AQE-XLtNhIXzmg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1692733341157?e=1766016000&v=beta&t=04ctz6TQzT40u66fc6bCuepNHA8jiNrSZzQPmW3As0E' # path to a remote file
     description = "my cool blog" # Used as default meta description if not specified in front matter
     dark_mode = true                      # optional - defaults to false
-    favicon = "favicon.ico"             # path to favicon (defaults to favicon.png)
+    favicon = "/favicon.ico"             # path to favicon (defaults to favicon.png)
 
     # MENU PLACEHOLDER
     # Menu dict keys:
