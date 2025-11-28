@@ -1,8 +1,12 @@
 baseURL = "https://blog.guelbandeira.com/"
 languageCode = "en-us"
 theme = "poison"
+title = "Blog - Guel Bandeira"
 pagerSize = 10
-#disablePathToLower = true
+enableEmoji = true
+enableGitInfo = true
+enableRobotsTXT = true
+canonifyURLs = true
 pluralizelisttitles = false   # removes the automatically appended "s" on sidebar entries
 
 # NOTE: If using Disqus as commenting engine, uncomment and configure this line
@@ -14,7 +18,7 @@ pluralizelisttitles = false   # removes the automatically appended "s" on sideba
     remote_brand_image = 'https://media.licdn.com/dms/image/v2/D4E03AQE-XLtNhIXzmg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1692733341157?e=1766016000&v=beta&t=04ctz6TQzT40u66fc6bCuepNHA8jiNrSZzQPmW3As0E' # path to a remote file
     description = "my cool blog" # Used as default meta description if not specified in front matter
     dark_mode = true                      # optional - defaults to false
-    # favicon = "favicon.png"             # path to favicon (defaults to favicon.png)
+    favicon = "favicon.ico"             # path to favicon (defaults to favicon.png)
 
     # MENU PLACEHOLDER
     # Menu dict keys:
@@ -24,7 +28,7 @@ pluralizelisttitles = false   # removes the automatically appended "s" on sideba
         # Limit:        If the files should be listed, how many should be shown.
     menu = [
         {Name = "About", URL = "about/", HasChildren = true},
-        {Name = "Posts", URL = "/posts/", Pre = "Recent", HasChildren = false, Limit = 5},
+        {Name = "Posts", URL = "/posts/", Pre = "Recent", HasChildren = true, Limit = 5},
     ]
 
     # Links to your socials.  Comment or delete any you don't need/use. 
