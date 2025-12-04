@@ -307,12 +307,7 @@
 
 
 
-        <p class="footnote">
-powered by <a target="_blank" href="https://gohugo.io">Hugo</a> | themed with <a target="_blank" href="https://github.com/lukeorth/poison">poison</a>
-    <br>
-    &copy; 2025 Blog - Guel Bandeira. All rights reserved.
-</p>
-
+        
   </div>
 </aside>
 
@@ -406,6 +401,40 @@ powered by <a target="_blank" href="https://gohugo.io">Hugo</a> | themed with <a
         </ul>
     </p>
     
+</div>
+
+  
+    <div class="comments">
+  
+  <div id="remark42"></div>
+  <script>
+    themeFromLS = localStorage.getItem("theme")
+    themeFromHugo = document.body.classList.contains("dark-theme") ? "dark" : "light"
+    currentTheme = themeFromLS ? themeFromLS : themeFromHugo;
+
+    var remark_config = {
+        host: "https://remark42.guelbandeira.com",
+        site_id: "remark",
+        theme: currentTheme,
+        max_shown_comments: 100,
+    }
+
+    console.log("Remark42 config:", remark_config);
+  </script>
+  <script>
+    !(function (e, n) {
+      for (var o = 0; o < e.length; o++) {
+        var r = n.createElement("script"),
+          c = ".js",
+          d = n.head || n.body;
+        "noModule" in r ? ((r.type = "module"), (c = ".mjs")) : (r.async = !0),
+          (r.defer = !0),
+          (r.src = remark_config.host + "/web/" + e[o] + c),
+          d.appendChild(r);
+      }
+    })(remark_config.components || ["embed"], document);
+  </script>
+  
 </div>
 
   
