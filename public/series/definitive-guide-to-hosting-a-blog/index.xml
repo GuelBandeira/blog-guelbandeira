@@ -6,8 +6,22 @@
     <description>Recent content in Definitive Guide to Hosting a Blog on Blog - Guel Bandeira</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 28 Nov 2025 02:38:09 -0300</lastBuildDate>
+    <lastBuildDate>Mon, 08 Dec 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/series/definitive-guide-to-hosting-a-blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to add a favicon on a Hugo blog?</title>
+      <link>http://localhost:1313/posts/how-to-add-favicon-on-hugo-blog/</link>
+      <pubDate>Mon, 08 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/how-to-add-favicon-on-hugo-blog/</guid>
+      <description>What tool did I use? This blog runs at no cost, with no database and on a free host. To not lie to you, the only cost I had was the domain name, for $10, but I already had that domain for my portfolio, and you can host this blog without using your custom domain. For the blog itself this runs without any money from my pockets, and the tool I used is called Hugo, a Go framework designed to build static websites.</description>
+    </item>
+    <item>
+      <title>How to setup Remark42 for Hugo blog?</title>
+      <link>http://localhost:1313/posts/how-to-setup-remark42-hugo-blog/</link>
+      <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/how-to-setup-remark42-hugo-blog/</guid>
+      <description>How to Install and Configure Remark42 on Oracle Cloud Using Docker + Nginx If you have a Hugo blog and want to add comments, Remark42 is one of the best choices, because is free, different from Disqus that you need to pay, but the thing that makes Remark42 not so simple, is that it is self-hosted, so I created this guide to help you, telling how I did it, so don&amp;rsquo;t have to go to the same trouble I had.</description>
+    </item>
     <item>
       <title>How to create a free blog?</title>
       <link>http://localhost:1313/posts/my-first-post/</link>

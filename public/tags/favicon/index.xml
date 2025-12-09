@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Favicon on Blog - Guel Bandeira</title>
+    <link>http://localhost:1313/tags/favicon/</link>
+    <description>Recent content in Favicon on Blog - Guel Bandeira</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 08 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/favicon/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to add a favicon on a Hugo blog?</title>
+      <link>http://localhost:1313/posts/how-to-add-favicon-on-hugo-blog/</link>
+      <pubDate>Mon, 08 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/how-to-add-favicon-on-hugo-blog/</guid>
+      <description>What tool did I use? This blog runs at no cost, with no database and on a free host. To not lie to you, the only cost I had was the domain name, for $10, but I already had that domain for my portfolio, and you can host this blog without using your custom domain. For the blog itself this runs without any money from my pockets, and the tool I used is called Hugo, a Go framework designed to build static websites.</description>
+    </item>
+  </channel>
+</rss>

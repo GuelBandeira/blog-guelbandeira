@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Oracle on Blog - Guel Bandeira</title>
+    <link>http://localhost:1313/tags/oracle/</link>
+    <description>Recent content in Oracle on Blog - Guel Bandeira</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 04 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/oracle/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to setup Remark42 for Hugo blog?</title>
+      <link>http://localhost:1313/posts/how-to-setup-remark42-hugo-blog/</link>
+      <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/how-to-setup-remark42-hugo-blog/</guid>
+      <description>How to Install and Configure Remark42 on Oracle Cloud Using Docker + Nginx If you have a Hugo blog and want to add comments, Remark42 is one of the best choices, because is free, different from Disqus that you need to pay, but the thing that makes Remark42 not so simple, is that it is self-hosted, so I created this guide to help you, telling how I did it, so don&amp;rsquo;t have to go to the same trouble I had.</description>
+    </item>
+  </channel>
+</rss>
