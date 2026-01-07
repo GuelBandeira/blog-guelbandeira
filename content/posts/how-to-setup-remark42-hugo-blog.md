@@ -11,7 +11,7 @@ tags: ["Hugo", "Remark42", "Oracle"]
 
 
  ------------------------------------------------------------
- 1. This is what we are going to set up:
+ 1 - This is what we are going to set up:
 
  - Comments powered by Remark42 on your Hugo blog
  - Cloudflare Tunnel running on a Debian server + Docker
@@ -127,13 +127,13 @@ To add remark42 on your Blog/Hugo Blog, you can follow the [Remark42 guide](http
 
 If creating a tunnel through **Docker** didn't work for you, you can do the following steps:
 
- 1. [Install the Cloudflare Tunnel service](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/do-more-with-tunnels/local-management/as-a-service/linux/)
+ 1 - [Install the Cloudflare Tunnel service](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/do-more-with-tunnels/local-management/as-a-service/linux/)
 
- 2. Log in to Cloudflare from the host (this opens a browser auth flow):
+ 2 - Log in to Cloudflare from the host (this opens a browser auth flow):
 
    ```cloudflared tunnel login```
 
- 3. Then create the tunnel:
+ 3 - Then create the tunnel:
 
    ```cloudflared tunnel create remark42```
 
