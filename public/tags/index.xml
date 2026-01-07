@@ -6,34 +6,34 @@
     <description>Recent content in Tags on Blog - Guel Bandeira</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 08 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 09 Dec 2025 08:56:32 -0300</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Favicon</title>
-      <link>http://localhost:1313/tags/favicon/</link>
-      <pubDate>Mon, 08 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/favicon/</guid>
-      <description></description>
-    </item>
     <item>
       <title>Hugo</title>
       <link>http://localhost:1313/tags/hugo/</link>
-      <pubDate>Mon, 08 Dec 2025 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 09 Dec 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/hugo/</guid>
       <description></description>
     </item>
     <item>
       <title>Oracle</title>
       <link>http://localhost:1313/tags/oracle/</link>
-      <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 09 Dec 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/oracle/</guid>
       <description></description>
     </item>
     <item>
       <title>Remark42</title>
       <link>http://localhost:1313/tags/remark42/</link>
-      <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 09 Dec 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/remark42/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Favicon</title>
+      <link>http://localhost:1313/tags/favicon/</link>
+      <pubDate>Mon, 08 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/favicon/</guid>
       <description></description>
     </item>
     <item>

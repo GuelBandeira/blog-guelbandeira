@@ -14,8 +14,8 @@ pluralizelisttitles = false   # removes the automatically appended "s" on sideba
 
 [params]
     brand = "Guel Bandeira"                      # name of your site - appears in the sidebar
-    brand_image = "https://media.licdn.com/dms/image/v2/D4E03AQE-XLtNhIXzmg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1692733341157?e=1766016000&v=beta&t=04ctz6TQzT40u66fc6bCuepNHA8jiNrSZzQPmW3As0E"    # path to the image shown in the sidebar
-    remote_brand_image = 'https://media.licdn.com/dms/image/v2/D4E03AQE-XLtNhIXzmg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1692733341157?e=1766016000&v=beta&t=04ctz6TQzT40u66fc6bCuepNHA8jiNrSZzQPmW3As0E' # path to a remote file
+    brand_image = "https://imgur.com/a/guelbandeira-IyD3YO9"    # path to the image shown in the sidebar
+    remote_brand_image = 'https://imgur.com/a/guelbandeira-IyD3YO9' # path to a remote file
     description = "my cool blog" # Used as default meta description if not specified in front matter
     dark_mode = true                      # optional - defaults to false
     favicon = "/favicon.ico"             # path to favicon (defaults to favicon.png)

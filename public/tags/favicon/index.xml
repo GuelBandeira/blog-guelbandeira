@@ -6,14 +6,14 @@
     <description>Recent content in Favicon on Blog - Guel Bandeira</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 08 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 09 Dec 2025 08:56:32 -0300</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/favicon/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>How to add a favicon on a Hugo blog?</title>
+      <title>How to add a favicon on a Hugo blog</title>
       <link>http://localhost:1313/posts/how-to-add-favicon-on-hugo-blog/</link>
       <pubDate>Mon, 08 Dec 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/how-to-add-favicon-on-hugo-blog/</guid>
-      <description>What tool did I use? This blog runs at no cost, with no database and on a free host. To not lie to you, the only cost I had was the domain name, for $10, but I already had that domain for my portfolio, and you can host this blog without using your custom domain. For the blog itself this runs without any money from my pockets, and the tool I used is called Hugo, a Go framework designed to build static websites.</description>
+      <description>Get your icon After choosing the icon you want to appear on your website, use CloudConvert to convert your favicon to .ico. You can also use any other website that converts images to .ico format, there are plenty of options available.&#xA;Select the extension of your favicon, choose ICO, and click Convert:&#xA;Add your favicon to Hugo Open your hugo.toml file and add the following lines:&#xA;[params] favicon = &amp;#34;/favicon.ico&amp;#34; Test to see if it works That’s it!</description>
     </item>
   </channel>
 </rss>
