@@ -90,8 +90,12 @@ docker-compose.yml:
     environment:
       REMARK_URL: https://remark42.YOUR_DOMAIN.com
       SITE: remark42
-      SECRET: YOUR_SECRET_HERE
-      AUTH_ANON: "true"
+      SECRET: YOUR_SECRET_HERE 
+      AUTH_ANON: "true" #REMOVE THIS AFTER TESTING
+      AUTH_GOOGLE_CID: YOUR_GOOGLE_CLIEND_ID_HERE
+      AUTH_GOOGLE_CSEC: YOUR_GOOGLE_SECRET_KEY_HERE
+      AUTH_GITHUB_CID: YOUR_GITHUB_CLIENT_ID_HERE
+      AUTH_GITHUB_CSEC: YOUR_GITHUB_SECRET_KEY_HERE
     volumes:
       - ./var:/srv/var
     expose:
@@ -102,18 +106,22 @@ docker-compose.yml:
     user: "0:0"
     container_name: cloudflared-remark42
     restart: unless-stopped
-    command: tunnel run remark42
+    command: tunnel run remark42  
     volumes:
       - /root/.cloudflared:/root/.cloudflared
     depends_on:
       - remark42
 
 ```
+
+Enter `https://remark42.YOUR_DOMAIN.com` to check if your remark42 container is up and running. Create a comment just to test if the comments are working properly, after that you can remove the ```AUTH_ANON: "true"``` on your docker container and run it again.
+
 --- 
 ## Adding Remark42 in your Blog
 
 To add remark42 on your Blog/Hugo Blog, you can follow the [Remark42 guide](https://remark42.com/docs/getting-started/installation/), or if you are using a Hugo template, check the documentation of your template, most of them have a built-in integration that you can set up through `hugo.toml`
 
+---
 
 ## Alternate way of creating a tunnel
 
