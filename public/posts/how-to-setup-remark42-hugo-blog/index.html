@@ -56,11 +56,11 @@
 
 <!-- Open Graph image and Twitter Card metadata -->
 
-<title itemprop="name">Guel Bandeira - How to setup Remark42 for Hugo blog?</title>
-<meta property="og:title" content=Guel&#32;Bandeira&#32;-&#32;How&#32;to&#32;setup&#32;Remark42&#32;for&#32;Hugo&#32;blog? />
-<meta name="twitter:title" content=Guel&#32;Bandeira&#32;-&#32;How&#32;to&#32;setup&#32;Remark42&#32;for&#32;Hugo&#32;blog? />
-<meta itemprop="name" content=Guel&#32;Bandeira&#32;-&#32;How&#32;to&#32;setup&#32;Remark42&#32;for&#32;Hugo&#32;blog? />
-<meta name="application-name" content=Guel&#32;Bandeira&#32;-&#32;How&#32;to&#32;setup&#32;Remark42&#32;for&#32;Hugo&#32;blog? />
+<title itemprop="name">Guel Bandeira - How to self-host Remark42 on Debian for a Hugo blog</title>
+<meta property="og:title" content=Guel&#32;Bandeira&#32;-&#32;How&#32;to&#32;self-host&#32;Remark42&#32;on&#32;Debian&#32;for&#32;a&#32;Hugo&#32;blog />
+<meta name="twitter:title" content=Guel&#32;Bandeira&#32;-&#32;How&#32;to&#32;self-host&#32;Remark42&#32;on&#32;Debian&#32;for&#32;a&#32;Hugo&#32;blog />
+<meta itemprop="name" content=Guel&#32;Bandeira&#32;-&#32;How&#32;to&#32;self-host&#32;Remark42&#32;on&#32;Debian&#32;for&#32;a&#32;Hugo&#32;blog />
+<meta name="application-name" content=Guel&#32;Bandeira&#32;-&#32;How&#32;to&#32;self-host&#32;Remark42&#32;on&#32;Debian&#32;for&#32;a&#32;Hugo&#32;blog />
 <meta property="og:site_name" content="Blog - Guel Bandeira" />
 
 
@@ -77,7 +77,7 @@
 <meta property="og:url" content="http://localhost:1313/posts/how-to-setup-remark42-hugo-blog/" />
 
 
-<meta property="og:updated_time" content="2026-01-06T22:42:20-03:00" />
+<meta property="og:updated_time" content="2026-01-07T21:09:52-03:00" />
 
 
 <link rel="sitemap" type="application/xml" title="Sitemap" href='http://localhost:1313/sitemap.xml' />
@@ -234,7 +234,7 @@
                         </li>
                         
                             <li class="bullet">
-                                <a href="http://localhost:1313/posts/how-to-setup-remark42-hugo-blog/">How to setup Remark42 for Hugo blog?</a>
+                                <a href="http://localhost:1313/posts/how-to-setup-remark42-hugo-blog/">How to self-host Remark42 on Debian for a Hugo blog</a>
                             </li>
                         
                             <li class="bullet">
@@ -335,7 +335,7 @@
                 <div class="post">
   <div class="info">
   <h1 class="post-title">
-    <a href="http://localhost:1313/posts/how-to-setup-remark42-hugo-blog/">How to setup Remark42 for Hugo blog?</a>
+    <a href="http://localhost:1313/posts/how-to-setup-remark42-hugo-blog/">How to self-host Remark42 on Debian for a Hugo blog</a>
   </h1>
 
   <div class="headline">
@@ -352,7 +352,7 @@
           
         
 
-        <span>6 mins read</span>
+        <span>3 mins read</span>
       </span>
     </div>
 
@@ -385,204 +385,119 @@
   
 </div>
 
-  <h1 id="how-to-install-and-configure-remark42-on-oracle-cloud-using-docker--nginx">How to Install and Configure Remark42 on Oracle Cloud Using Docker + Nginx</h1>
-<p>If you have a Hugo blog and want to add comments, Remark42 is one of the best choices, because is free, different from Disqus that you need to pay, but the thing that makes Remark42 not so simple, is that it is self-hosted, so I created this guide to help you, telling how I did it, so don&rsquo;t have to go to the same trouble I had.</p>
-<p>In this guide, I’ll show exactly how I installed Remark42 on an Oracle Cloud Always Free VPS using Docker, Nginx, and a domain with proper DNS configuration. I also included my errors that happened during the setup, and how I fixed them, if you encounter the same problem.</p>
+  <p>This post documents the exact process that worked for me when self-hosting
+Remark42 behind a Cloudflare Tunnel on my Hugo blog. No theory, no dead ends, only the
+final, functional setup that I have found after hours of debugging errors and permissions.</p>
 <hr>
-<h2 id="what-we-will-set-up">What we will set up</h2>
+<p>1 - This is what we are going to set up:</p>
 <ul>
-<li>Oracle Cloud VPS (Ubuntu)</li>
-<li>DNS configuration (A record)</li>
-<li>SSH access using a generated key pair</li>
-<li>Docker</li>
-<li>Remark42 container (HTTP mode)</li>
-<li>Nginx reverse proxy</li>
-<li>Oracle VCN/Firewall rules</li>
-<li>Fixing common issues</li>
+<li>Comments powered by Remark42 on your Hugo blog</li>
+<li>Cloudflare Tunnel running on a Debian server + Docker</li>
+<li>No public IP</li>
+<li>Access via HTTPS</li>
 </ul>
 <hr>
-<h2 id="setup-oracle-vps">Setup Oracle VPS</h2>
-<h3 id="1-creating-your-free-instance">1. Creating Your Free Instance</h3>
-<p>In this guide I will use the Oracle UI on the web to configure our server that is going to host the Remark42, the first you need is to create an account on Oracle Cloud, and after that you will <a href="https://docs.oracle.com/en-us/iaas/Content/Compute/Tasks/launchinginstance.htm" target="_blank">create an instance</a></p>
-<p>When selecting the image, I&rsquo;m going to choose Ubuntu 24.04, but you can choose whatever you want, but note that this guide only cover Ubuntu.</p>
-<p><img src="http://localhost:1313/images/how-to-setup-remark42-hugo-blog/ubuntu-image.png" alt="Selecting Ubuntu"></p>
-<p><img src="http://localhost:1313/images/how-to-setup-remark42-hugo-blog/ubuntu-image2.png" alt="Selecting Ubuntu Version"></p>
-<p><strong>IMPORTANT</strong>: When selecting the shape, you can choose the &lsquo;Always Free&rsquo; option, but this option isn&rsquo;t always available depending on which region you are, I am on AD1-SAOPAULO and in this region I get an <strong>“out of host capacity”</strong> error when I try to create an Always Free Compute instance, so I recommend you try creating the instance with VM.Standard.A1.Flex, and if you got the error above, use the <strong>VM.Standard.A2.Flex</strong>, and don&rsquo;t worry about not being free, it is going to remain free because we will not use the full capacity of this instance, we are going to use it with 4 CPUs and 24GB of RAM, that is the same resources the &lsquo;Always Free&rsquo; instance has.</p>
-<p><img src="http://localhost:1313/images/how-to-setup-remark42-hugo-blog/select-shape.png" alt="Selecting Shape"></p>
-<p>In the security section I have the <strong>Shielded Instance</strong> disabled.</p>
-<p><img src="http://localhost:1313/images/how-to-setup-remark42-hugo-blog/security-page.png" alt="Security page"></p>
-<p>And in the Networking you can put whatever name you want in the VNIC, and be sure that this option is enabled.
-<img src="http://localhost:1313/images/how-to-setup-remark42-hugo-blog/ipv4-assignment.png" alt="IPV4 option"></p>
-<p>After that, download your SSH-Keys and save it in your computer, we are going to use this in the next step.</p>
-<p><img src="http://localhost:1313/images/how-to-setup-remark42-hugo-blog/ssh-keys.png" alt="SSH Keys download"></p>
-<p>On the <strong>Storage</strong> section on can leave the way it is</p>
-<p><img src="http://localhost:1313/images/how-to-setup-remark42-hugo-blog/storage-section.png" alt="Storage Section"></p>
-<p>Now your instance is created it! Now let&rsquo;s do one more step to ensure we stay on the free version, and we will configure your public IP, alogn with your access through SSH, as well as allowing the ports Remark42 is going to use on your VNIC.</p>
-<h3 id="2-ensuring-the-instance-stays-on-free">2. Ensuring the instance stays on Free</h3>
-<p>Go to your instance, and stop the instance</p>
-<p><img src="http://localhost:1313/images/how-to-setup-remark42-hugo-blog/stopping-instance.png" alt="Stopping the Instance"></p>
-<p>Now wait until the instance is completely stopped, and go on Actions &gt; More actions &gt; Edit</p>
-<p><img src="http://localhost:1313/images/how-to-setup-remark42-hugo-blog/edit-instance.png" alt="Edit the Instance"></p>
-<p>Now edit the number of CPU&rsquo;s and the amount of memory, the Always Free has <strong>4 CPUs and 24GB of RAM</strong>, so you can enter the number until this limit, if you surpass that, you are gonna be charged based on the paid plan, so if you stay below this limit you are safe, you can even set the number of CPU to 1 and the amount of memory to 2GB like I did, and remark42 will work fine.</p>
-<p><img src="http://localhost:1313/images/how-to-setup-remark42-hugo-blog/config-instance.png" alt="Configuring the amout of RAM and Storage of the Instance"></p>
-<h3 id="3-create-public-ip">3. Create Public IP</h3>
-<p>This step will only be needed if you don&rsquo;t have a public IP assigned, like mine below:</p>
-<p><img src="http://localhost:1313/images/how-to-setup-remark42-hugo-blog/select-instance.png" alt="Instance"></p>
-<p>If that&rsquo;s your case, enter the instance, go to the networking.</p>
-<p><img src="http://localhost:1313/images/how-to-setup-remark42-hugo-blog/instance-networking.png" alt="Instance Networking"></p>
-<p>And enter your primary VNIC</p>
-<p><img src="http://localhost:1313/images/how-to-setup-remark42-hugo-blog/select-vnic.png" alt="Instance Networking"></p>
-<p>After that, go to <strong>IP Administration</strong>, click the three dots button on the right side of the page, and go on <strong>Edit</strong>.</p>
-<p>You should see this section, Select the <strong>Create new Reserved IP Address</strong> and define the Public IP Name, after that click on the white update button.</p>
-<p><img src="http://localhost:1313/images/how-to-setup-remark42-hugo-blog/assign-public-ipv4.png" alt="Instance"></p>
-<p>Now you have the IP that we are going to use to connect through SSH.</p>
-<h3 id="3-connect-with-ssh">3. Connect with SSH</h3>
-<p>Grab the SSH keys you have downloaded in the first step, and follow this tutorial so you can see how you will generate your access</p>
-<p><strong>IMPORTANT</strong>: The username will <strong>ubuntu</strong></p>
-
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/mZiyH-ibyNM" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
-
-<h3 id="4-allowing-remark42-ports-on-vnic-security-list">4. Allowing Remark42 ports on VNIC security list</h3>
-<p>Before we install Docker + Nginx, we need to ensure the ports that remark42 is going to use are defined in your VNIC security list, so let&rsquo;s go</p>
-<p>Go to Networking &gt; Enter your Primary VNIC</p>
-<p>Install Docker:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -fsSL https://get.docker.com | sudo bash
-</span></span></code></pre></div><p>Install Docker Compose plugin:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install docker-compose-plugin -y
-</span></span></code></pre></div><p>Check:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker --version
-</span></span><span style="display:flex;"><span>docker compose version
-</span></span></code></pre></div><hr>
-<h2 id="4-creating-the-docker-compose-for-remark42">4. Creating the Docker Compose for Remark42</h2>
-<p>Create a folder:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir remark42
-</span></span><span style="display:flex;"><span>cd remark42
-</span></span></code></pre></div><p>Create the <code>docker-compose.yml</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;3&#34;</span>
+<h2 id="setup-cloudflare-tunnel">Setup Cloudflare Tunnel</h2>
+<h3 id="setup-with-cloudflare-cli-recommended">Setup with Cloudflare CLI (Recommended)</h3>
+<p>If creating a tunnel through <strong>Docker</strong> didn&rsquo;t work for you, you can do the following steps:</p>
+<p>1 - <a href="https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/do-more-with-tunnels/local-management/as-a-service/linux/" target="_blank">Install the Cloudflare Tunnel service</a></p>
+<p>2 - Log in to Cloudflare from the host (this opens a browser auth flow):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cloudflared tunnel login
+</span></span></code></pre></div><p>3 - Then create the tunnel:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cloudflared tunnel create remark42
+</span></span></code></pre></div><p>This creates a credentials file like:</p>
+<p><code>/root/.cloudflared/&lt;UUID&gt;.json</code></p>
+<p>Check if your tunnel was created with</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cloudflared tunnel list
+</span></span></code></pre></div><p>4 - Then create the DNS for your domain:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cloudflared tunnel route dns remark42 remark42.YOUR_DOMAIN.com
+</span></span></code></pre></div><p>5 - (Optional) If you want to check if the tunnel is up and running, paste this commmand on your terminal:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cloudflared tunnel run --hello-world remark42
+</span></span></code></pre></div><p>If it worked you can proceed with the Setup of Remark42</p>
+<hr>
+<h3 id="setup-with-docker">Setup with Docker</h3>
+<p>Log in as the root user and run the command below:</p>
+<pre tabindex="0"><code>docker run --rm -it \
+  --user 0:0 \
+  -v /root/.cloudflared:/root/.cloudflared \
+  cloudflare/cloudflared:latest login
+</code></pre><p>A link will appear so you can log in to your Cloudflare dashboard and authorize your domain. After authorizing your domain, you should see that a <code>cert.pem</code> file was created in your <code>/root/.cloudflared/</code></p>
+<p>Now you will create a config.yml in the same directory:</p>
+<p><code>/root/.cloudflared/config.yml</code></p>
+<p>config.yml:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">protocol</span>: <span style="color:#ae81ff">http2</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">services</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">remark42</span>:
+</span></span><span style="display:flex;"><span><span style="color:#f92672">tunnel</span>: <span style="color:#ae81ff">&lt;YOUR-TUNNEL-UID&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">credentials-file</span>: <span style="color:#ae81ff">/root/.cloudflared/&lt;YOUR-TUNNEL-UID&gt;.json</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">ingress</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">hostname</span>: <span style="color:#ae81ff">remark42.YOUR_DOMAIN.com</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">service</span>: <span style="color:#ae81ff">http://remark42:8080</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">service</span>: <span style="color:#ae81ff">http_status:404</span>
+</span></span></code></pre></div><p>Then create the tunnel with this command</p>
+<pre tabindex="0"><code>docker run --rm -it \
+  --user 0:0 \
+  -v /root/.cloudflared:/root/.cloudflared \
+  cloudflare/cloudflared:latest tunnel create remark42
+</code></pre><p>All you need now is to create the DNS record for your tunnel. You also can do this through your dashboard on the Cloudflare website, but I find it easier to just run the command that creates for me</p>
+<pre tabindex="0"><code>docker run --rm \
+  --user 0:0 \
+  -v /root/.cloudflared:/root/.cloudflared \
+  cloudflare/cloudflared:latest \
+  tunnel route dns remark42 remark42.YOUR_DOMAIN.com
+</code></pre><p>Now you have a Cloudflare tunnel running, and the DNS is pointing exactly where it needs to point, the only remaining step is to create the <a href="https://remark42.com/" target="_blank">Remark42</a> container</p>
+<hr>
+<h2 id="setup-remark42">Setup Remark42</h2>
+<p>Copy this docker composer file and run with <code>docker compose up -d</code></p>
+<p>docker-compose.yml:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span> <span style="color:#f92672">remark42</span>:
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">umputun/remark42:latest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">user</span>: <span style="color:#e6db74">&#34;0:0&#34;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">remark42</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;8080:8080&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">unless-stopped</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">SITE=remark42.blogprogrammer.com</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">REMARK_URL=https://remark42.blogprogrammer.com</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">SECRET=your-secret-here</span>
-</span></span></code></pre></div><p>Start Remark42:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo docker compose up -d
-</span></span></code></pre></div><p>Check logs:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo docker compose logs -f
-</span></span></code></pre></div><hr>
-<h2 id="5-create-dns-a-record">5. Create DNS A Record</h2>
-<p>On your domain provider, add:</p>
-<pre tabindex="0"><code>Type: A
-Host: remark42
-Value: YOUR_PUBLIC_IP
-TTL: Auto
-</code></pre><p>Check propagation:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dig +short remark42.blogprogrammer.com
-</span></span></code></pre></div><p>It must return your VPS IP.</p>
-<hr>
-<h2 id="6-fixing-oracle-cloud-firewall-vcn-rules">6. Fixing Oracle Cloud Firewall (VCN Rules)</h2>
-<p>This is the part that caused the main problems.</p>
-<p>Initially:</p>
-<ul>
-<li><code>curl http://SERVER_IP</code> failed</li>
-<li><code>nc -vz IP 80</code> timed out</li>
-<li>Certbot failed</li>
-<li>Nginx couldn&rsquo;t proxy</li>
-<li>The server was unreachable externally</li>
-</ul>
-<p>The reason: <strong>Oracle blocks all ingress ports by default</strong>.</p>
-<p>Fix:</p>
-<ol>
-<li>Go to <strong>Oracle Console → Networking → VCN → Subnet → Security Lists</strong></li>
-<li>Edit the security list applied to your instance</li>
-<li>Add ingress rules:</li>
-</ol>
-<pre tabindex="0"><code>Protocol: TCP
-Port: 80
-Source: 0.0.0.0/0
-</code></pre><pre tabindex="0"><code>Protocol: TCP
-Port: 443
-Source: 0.0.0.0/0
-</code></pre><p>Save and wait 1 minute.</p>
-<p>Now test again:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -v http://YOUR_PUBLIC_IP
-</span></span></code></pre></div><p>It should respond.</p>
-<hr>
-<h2 id="7-installing-and-configuring-nginx">7. Installing and Configuring Nginx</h2>
-<p>Install:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install nginx -y
-</span></span></code></pre></div><p>Create the config file:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo nano /etc/nginx/sites-available/remark42.conf
-</span></span></code></pre></div><p>Paste:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nginx" data-lang="nginx"><span style="display:flex;"><span><span style="color:#66d9ef">server</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">listen</span> <span style="color:#ae81ff">80</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">server_name</span> <span style="color:#e6db74">remark42.blogprogrammer.com</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">REMARK_URL</span>: <span style="color:#ae81ff">https://remark42.YOUR_DOMAIN.com</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">SITE</span>: <span style="color:#ae81ff">remark42</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">SECRET</span>: <span style="color:#ae81ff">YOUR_SECRET_HERE </span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">AUTH_ANON</span>: <span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#75715e">#REMOVE THIS AFTER TESTING</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">AUTH_GOOGLE_CID</span>: <span style="color:#ae81ff">YOUR_GOOGLE_CLIEND_ID_HERE</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">AUTH_GOOGLE_CSEC</span>: <span style="color:#ae81ff">YOUR_GOOGLE_SECRET_KEY_HERE</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">AUTH_GITHUB_CID</span>: <span style="color:#ae81ff">YOUR_GITHUB_CLIENT_ID_HERE</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">AUTH_GITHUB_CSEC</span>: <span style="color:#ae81ff">YOUR_GITHUB_SECRET_KEY_HERE</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">./var:/srv/var</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">expose</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;8080&#34;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">location</span> <span style="color:#e6db74">/</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">proxy_pass</span> <span style="color:#e6db74">http://127.0.0.1:8080</span>;
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">proxy_set_header</span> <span style="color:#e6db74">Host</span> $host;
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">proxy_set_header</span> <span style="color:#e6db74">X-Real-IP</span> $remote_addr;
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">proxy_set_header</span> <span style="color:#e6db74">X-Forwarded-For</span> $proxy_add_x_forwarded_for;
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">proxy_set_header</span> <span style="color:#e6db74">X-Forwarded-Proto</span> $scheme;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Enable the config:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo ln -s /etc/nginx/sites-available/remark42.conf /etc/nginx/sites-enabled/
-</span></span><span style="display:flex;"><span>sudo nginx -t
-</span></span><span style="display:flex;"><span>sudo systemctl restart nginx
-</span></span></code></pre></div><p>Test:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -I http://127.0.0.1
-</span></span><span style="display:flex;"><span>curl -I http://YOUR_PUBLIC_IP
-</span></span></code></pre></div><hr>
-<h2 id="8-generating-ssl-with-certbot">8. Generating SSL with Certbot</h2>
-<p>Install Certbot:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install certbot python3-certbot-nginx -y
-</span></span></code></pre></div><p>Run:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo certbot --nginx -d remark42.blogprogrammer.com
-</span></span></code></pre></div><p>If you originally ran it before fixing Oracle Cloud firewall, you saw this:</p>
-<pre tabindex="0"><code>Challenge failed for domain
-Some challenges have failed
-</code></pre><p>When the firewall is fixed, it works.</p>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">cloudflared</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">cloudflare/cloudflared:latest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">user</span>: <span style="color:#e6db74">&#34;0:0&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">cloudflared-remark42</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">unless-stopped</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">command</span>: <span style="color:#ae81ff">tunnel run remark42  </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/root/.cloudflared:/root/.cloudflared</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">depends_on</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">remark42</span>
+</span></span></code></pre></div><p>Enter <code>https://remark42.YOUR_DOMAIN.com</code> to check if your remark42 container is up and running. Create a comment just to test if the comments are working properly, after that you can remove the <code>AUTH_ANON: &quot;true&quot;</code> on your docker container and run it again.</p>
 <hr>
-<h2 id="9-final-verification">9. Final Verification</h2>
-<p>Open:</p>
-<pre tabindex="0"><code>https://remark42.blogprogrammer.com/web
-</code></pre><p>You should see the admin UI.</p>
-<p>Check logs:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker compose logs -f
-</span></span></code></pre></div><hr>
-<h2 id="10-integration-with-your-website">10. Integration With Your Website</h2>
-<p>Add this script on your pages:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span>&gt;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">remark_config</span> <span style="color:#f92672">=</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;https://remark42.blogprogrammer.com&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">site_id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;remark42.blogprogrammer.com&#34;</span>,
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://remark42.blogprogrammer.com/web/embed.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://remark42.blogprogrammer.com/web/remark.css&#34;</span>&gt;
-</span></span></code></pre></div><p>Insert the container:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;remark42&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+<h2 id="adding-remark42-in-your-blog">Adding Remark42 in your Blog</h2>
+<p>To add remark42 on your Blog/Hugo Blog, you can follow the <a href="https://remark42.com/docs/getting-started/installation/" target="_blank">Remark42 guide</a>, or if you are using a Hugo template, check the documentation of your template, most of them have a built-in integration that you can set up through <code>hugo.toml</code></p>
+<p>In the Poison Theme, that I currently use, the only thing you need to do is to add this lines on your <code>[params]</code> section:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>    <span style="color:#a6e22e">remark42</span> = <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">remark42_host</span> = <span style="color:#e6db74">&#34;https://remark42.YOUR_DOMAIN.com&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">remark42_site_id</span> = <span style="color:#e6db74">&#34;remark42&#34;</span>
 </span></span></code></pre></div><hr>
 <h2 id="conclusion">Conclusion</h2>
-<p>You now have:</p>
+<p>Remark42 is now:</p>
 <ul>
-<li>Remark42 running in Docker</li>
-<li>Nginx reverse proxy</li>
-<li>SSL via Certbot</li>
-<li>Oracle Cloud firewall properly configured</li>
-<li>A fully self-hosted comment system</li>
+<li>Self-hosted</li>
+<li>HTTPS</li>
+<li>No open ports</li>
+<li>No public IP</li>
+<li>Stable</li>
 </ul>
-<p>This setup is lightweight, fast, and completely under your control.</p>
+<p>And running on your blog :)</p>
 
   
   <hr>
@@ -600,7 +515,7 @@ Some challenges have failed
             <li>
                 December 9, 2025 -
                 
-                    How to setup Remark42 for Hugo blog?
+                    How to self-host Remark42 on Debian for a Hugo blog
                 
             </li>
             
@@ -634,7 +549,7 @@ Some challenges have failed
 
     var remark_config = {
         host: "https://remark42.guelbandeira.com",
-        site_id: "remark",
+        site_id: "remark42",
         theme: currentTheme,
         max_shown_comments: 100,
     }
@@ -667,23 +582,14 @@ Some challenges have failed
       <h4 id="contents"></h4>
       <nav id="TableOfContents">
   <ul>
-    <li><a href="#what-we-will-set-up">What we will set up</a></li>
-    <li><a href="#setup-oracle-vps">Setup Oracle VPS</a>
+    <li><a href="#setup-cloudflare-tunnel">Setup Cloudflare Tunnel</a>
       <ul>
-        <li><a href="#1-creating-your-free-instance">1. Creating Your Free Instance</a></li>
-        <li><a href="#2-ensuring-the-instance-stays-on-free">2. Ensuring the instance stays on Free</a></li>
-        <li><a href="#3-create-public-ip">3. Create Public IP</a></li>
-        <li><a href="#3-connect-with-ssh">3. Connect with SSH</a></li>
-        <li><a href="#4-allowing-remark42-ports-on-vnic-security-list">4. Allowing Remark42 ports on VNIC security list</a></li>
+        <li><a href="#setup-with-cloudflare-cli-recommended">Setup with Cloudflare CLI (Recommended)</a></li>
+        <li><a href="#setup-with-docker">Setup with Docker</a></li>
       </ul>
     </li>
-    <li><a href="#4-creating-the-docker-compose-for-remark42">4. Creating the Docker Compose for Remark42</a></li>
-    <li><a href="#5-create-dns-a-record">5. Create DNS A Record</a></li>
-    <li><a href="#6-fixing-oracle-cloud-firewall-vcn-rules">6. Fixing Oracle Cloud Firewall (VCN Rules)</a></li>
-    <li><a href="#7-installing-and-configuring-nginx">7. Installing and Configuring Nginx</a></li>
-    <li><a href="#8-generating-ssl-with-certbot">8. Generating SSL with Certbot</a></li>
-    <li><a href="#9-final-verification">9. Final Verification</a></li>
-    <li><a href="#10-integration-with-your-website">10. Integration With Your Website</a></li>
+    <li><a href="#setup-remark42">Setup Remark42</a></li>
+    <li><a href="#adding-remark42-in-your-blog">Adding Remark42 in your Blog</a></li>
     <li><a href="#conclusion">Conclusion</a></li>
   </ul>
 </nav>

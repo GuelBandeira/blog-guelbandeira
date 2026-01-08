@@ -21,6 +21,59 @@ tags: ["Hugo", "Remark42", "Oracle"]
 ----
 
 ## Setup Cloudflare Tunnel
+
+
+### Setup with Cloudflare CLI (Recommended)
+
+If creating a tunnel through **Docker** didn't work for you, you can do the following steps:
+
+1 - [Install the Cloudflare Tunnel service](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/do-more-with-tunnels/local-management/as-a-service/linux/)
+
+2 - Log in to Cloudflare from the host (this opens a browser auth flow):
+
+```bash
+cloudflared tunnel login
+```
+
+3 - Then create the tunnel:
+
+```bash
+cloudflared tunnel create remark42
+```
+
+This creates a credentials file like:
+
+`/root/.cloudflared/<UUID>.json`
+
+
+Check if your tunnel was created with
+
+```bash
+cloudflared tunnel list
+```
+
+
+4 - Then create the DNS for your domain: 
+
+```bash 
+cloudflared tunnel route dns remark42 remark42.YOUR_DOMAIN.com
+```
+
+
+5 - (Optional) If you want to check if the tunnel is up and running, paste this commmand on your terminal:
+
+```bash 
+cloudflared tunnel run --hello-world remark42
+```
+
+
+If it worked you can proceed with the Setup of Remark42
+
+---------------
+
+
+### Setup with Docker
+
 Log in as the root user and run the command below:
 
 ```
@@ -131,28 +184,6 @@ In the Poison Theme, that I currently use, the only thing you need to do is to a
 
 ---
 
-## Alternate way of creating a tunnel
-
-If creating a tunnel through **Docker** didn't work for you, you can do the following steps:
-
- 1 - [Install the Cloudflare Tunnel service](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/do-more-with-tunnels/local-management/as-a-service/linux/)
-
- 2 - Log in to Cloudflare from the host (this opens a browser auth flow):
-
-   ```cloudflared tunnel login```
-
- 3 - Then create the tunnel:
-
-   ```cloudflared tunnel create remark42```
-
- This creates a credentials file like:
-   `/root/.cloudflared/<UUID>.json`
-
-
-Check if your tunnel was created with
-```cloudflared tunnel list```
-
-If it worked you can proceed with the creation of the config.yml in the `/root/.cloudflared/config.yml` directory
 
 
 ## Conclusion 

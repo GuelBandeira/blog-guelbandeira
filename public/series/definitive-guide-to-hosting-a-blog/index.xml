@@ -6,14 +6,14 @@
     <description>Recent content in Definitive Guide to Hosting a Blog on Blog - Guel Bandeira</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 06 Jan 2026 22:42:20 -0300</lastBuildDate>
+    <lastBuildDate>Wed, 07 Jan 2026 21:09:52 -0300</lastBuildDate>
     <atom:link href="http://localhost:1313/series/definitive-guide-to-hosting-a-blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>How to setup Remark42 for Hugo blog?</title>
+      <title>How to self-host Remark42 on Debian for a Hugo blog</title>
       <link>http://localhost:1313/posts/how-to-setup-remark42-hugo-blog/</link>
       <pubDate>Tue, 09 Dec 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/how-to-setup-remark42-hugo-blog/</guid>
-      <description>How to Install and Configure Remark42 on Oracle Cloud Using Docker + Nginx If you have a Hugo blog and want to add comments, Remark42 is one of the best choices, because is free, different from Disqus that you need to pay, but the thing that makes Remark42 not so simple, is that it is self-hosted, so I created this guide to help you, telling how I did it, so don&amp;rsquo;t have to go to the same trouble I had.</description>
+      <description>This post documents the exact process that worked for me when self-hosting Remark42 behind a Cloudflare Tunnel on my Hugo blog. No theory, no dead ends, only the final, functional setup that I have found after hours of debugging errors and permissions.&#xA;1 - This is what we are going to set up:&#xA;Comments powered by Remark42 on your Hugo blog Cloudflare Tunnel running on a Debian server + Docker No public IP Access via HTTPS Setup Cloudflare Tunnel Log in as the root user and run the command below:</description>
     </item>
     <item>
       <title>How to add a favicon on a Hugo blog</title>
