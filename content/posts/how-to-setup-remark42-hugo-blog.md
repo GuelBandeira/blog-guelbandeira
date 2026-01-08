@@ -121,6 +121,14 @@ Enter `https://remark42.YOUR_DOMAIN.com` to check if your remark42 container is 
 
 To add remark42 on your Blog/Hugo Blog, you can follow the [Remark42 guide](https://remark42.com/docs/getting-started/installation/), or if you are using a Hugo template, check the documentation of your template, most of them have a built-in integration that you can set up through `hugo.toml`
 
+In the Poison Theme, that I currently use, the only thing you need to do is to add this lines on your `[params]` section:
+
+```toml
+    remark42 = true
+    remark42_host = "https://remark42.YOUR_DOMAIN.com"
+    remark42_site_id = "remark42"
+```
+
 ---
 
 ## Alternate way of creating a tunnel
