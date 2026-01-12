@@ -87,7 +87,7 @@ pluralizelisttitles = false   # removes the automatically appended "s" on sideba
     remark42_site_id = "remark42"
     
     plausible = true
-    plausible_domain = "plausible.guelbandeira.com"
+    plausible_domain = "blog.guelbandeira.com"
     plausible_script = "https://plausible.guelbandeira.com/js/pa-KAIFHbr9bPLR9_PJg4j5s.js"
 
     # NOTE: The following three params are optional and are used to create meta tags + enhance SEO.
