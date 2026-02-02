@@ -27,7 +27,3 @@ features = ["blog", "katex", "table-of-contents", "tabs", "dark-mode", "series"]
     remark42 = true
     remark42_host = "https://remark42.guelbandeira.com"
     remark42_site_id = "remark"
-
-    plausible = true
-    plausible_domain = "blog.guelbandeira.com"
-    plausible_script = "https://plausible.guelbandeira.com/js/pa-KAIFHbr9bPLR9_PJg4j5s.js"
